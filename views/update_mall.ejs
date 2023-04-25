@@ -1,0 +1,26 @@
+<%- include('header') %>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">update mall</h3>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Mall form</h4>
+              <form class="forms-sample" method="post" action="/mall/editData">
+              <input type="hidden" value="<%= data.id %>" name="id">
+                <div class="form-group">
+                  <label for="exampleInputUsername1">Mall Name</label>
+                  <input type="text" class="form-control" id="MallName" name="MallName"  value="<%= data.MallName %>">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- include('footer')%>

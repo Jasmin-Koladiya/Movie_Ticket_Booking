@@ -1,0 +1,36 @@
+<%- include('header') %>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">Update Admin</h3>
+        <nav aria-label="breadcrumb">
+     
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Update Admin</h4>
+              <form class="forms-sample" method="post" action="/editData">
+                <input type="hidden" value="<%= data.id %>" name="id">
+                <div class="form-group">
+                  <label for="exampleInputUsername1">Username</label>
+                  <input type="text" class="form-control" id="exampleInputUsername1" name="name" value="<%= data.name %>">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="<%= data.email %>">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="<%= data.password %>">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- include('footer')%>

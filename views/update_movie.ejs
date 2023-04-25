@@ -1,0 +1,43 @@
+<%- include('header') %>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">update movie</h3>
+       
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Movie form</h4>
+              <form class="forms-sample" method="post" action="/movie/editData" enctype="multipart/form-data">
+              <input type="hidden" value="<%= data.id %>" name="id">
+                <div class="form-group">
+                  <label for="exampleInputUsername1">Movie Name</label>
+                  <input type="text" class="form-control" id="MovieName" name="MovieName"  value="<%= data.MovieName %>">
+                </div>
+                <div class="form-group">
+                  <label for="input-1">movie type</label>
+                  <select class="form-control" name="type" id="type">
+                      <option value="Movie" <% if (data.type === 'Movie') { %>selected<% } %>>Movie</option>
+                      <option value="Movie" <% if (data.type === 'series') { %>selected<% } %>>series</option>
+                      <option value="Movie" <% if (data.type === 'Drama') { %>selected<% } %>>Drama</option>
+                  </select>
+                 </div>
+                 <div class="form-group">
+                  <label for="input-1">movie description</label>
+                  <textarea name="description" id="description" class="form-control" cols="10" rows="10"value=""><%= data.description %></textarea>
+                 </div>
+                 <div class="form-group">
+                  <label for="input-1">movie Poster</label>
+                  <input type="file" name="avatar" id="avatar" class="form-control">
+                  <img src="<%= data.avatar %>" height="100">
+                 </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- include('footer')%>

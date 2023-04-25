@@ -1,0 +1,50 @@
+<%- include('header') %>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">Add movie</h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Forms</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Movie form</h4>
+              <form class="forms-sample" method="post" action="/movie/addMovieData" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="exampleInputUsername1">Movie Name</label>
+                  <input type="text" class="form-control" id="MovieName" name="MovieName"  placeholder="Movie Name">
+                </div>
+                <div class="form-group">
+                  <label for="input-1">movie type</label>
+                  <select class="form-control" name="type" id="type">
+                    <option value=" ">-- select Type--</option>
+                      <option value="Action">Movie</option>
+                      <option value="Sci-Fi">Sci-Fi</option>
+                      <option value="Adventure">Adventure</option>
+                      <option value="Comedy">Comedy</option>
+                      <option value="Thriller">Thriller</option>
+                      <option value="Horror">Horror</option>
+                  </select>
+                 </div>
+                 <div class="form-group">
+                  <label for="input-1">movie description</label>
+                  <textarea name="description" id="description" class="form-control" cols="10" rows="10" placeholder="Enter movie description"></textarea>
+                 </div>
+                 <div class="form-group">
+                  <label for="input-1">movie Poster</label>
+                  <input type="file" name="avatar" id="avatar" class="form-control">
+                 </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- include('footer')%>

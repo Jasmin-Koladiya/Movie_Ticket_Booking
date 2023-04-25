@@ -1,0 +1,46 @@
+<%- include('header')%>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">View movie show in mall</h3>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                    
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Movie Name</th>
+                                            <th>Mall Name</th>
+                                            <th>Show Time</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <%for(var i of data){%>
+                                            <tr> 
+                                                <td scope="col"><%=i.movie_id.MovieName%></td> 
+                                                <td scope="col"><%=i.mall_id.MallName%></td> 
+                                                <td scope="col"><%=i.show_time%></td> 
+                                                <td scope="col"><%=i.price%></td> 
+                                                <td><a href="/movieshow/delete_movieshow/<%= i.id %> "><i class="mdi mdi-delete"></i></a></td>
+
+                                                 </tr>
+                                            <%}%>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <%- include('footer')%>

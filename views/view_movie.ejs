@@ -1,0 +1,67 @@
+<%- include('header')%>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">View movie</h3>
+                <nav aria-label="breadcrumb">
+               
+                </nav>
+            </div>
+            <form class="search-bar d-flex" >
+                <div>
+                  <input type="search" class="form-control" name="search" style="height: 36px;" placeholder="Enter search keywords">
+                </div>
+              </form>
+            <div class="row">
+                <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">View movie</h4>
+                           
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>status</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%for(var i of activedata){%>
+                                            <tr>
+                                                <td scope="col"><%=i.MovieName%></td>
+                                                <td scope="col"><%=i.type%></td>
+                                                <td>
+                                                    <% if(i.isactive){%>
+                                                        <a href="/movie/deactivestatus/<%= i.id %>">Active</a>
+                                                        <%} else {%>
+                                                          <a href="/movie/activestatus/<%= i.id %>">deactive</a>
+                                                          <%}%>
+                                                </td>
+                                                <td scope="col" class="text-center"><img src="<%= i.avatar %>" style="width: 80px; height: 80px;"></td>
+                                            <td ><a href="/movie/delete_movie/<%= i.id %> "><i class="mdi mdi-delete"></i></a>&nbsp;
+                                                    |&nbsp;&nbsp;| &nbsp;<a href="/movie/updateData/<%= i.id %>"><i class="mdi mdi-table-edit"></i></a></th>
+                                                 
+                                            </tr>
+                                            <%}%>
+                                    </tbody>
+                                </table>
+
+                                <td>
+                                    <a href="?page=<%= previous%>&search=<%= searchdata %>" class="btn btn-light">previous</a>
+                                    <a href="?page=<%= current %>&search=<%= searchdata %>" class="btn btn-light">
+                                      <%=current%>
+                                    </a>
+                                    <a href="?page=<%= next%>&search=<%= searchdata %>" class="btn btn-light">next</a>
+                                  </td>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('footer')%>

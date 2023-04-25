@@ -1,0 +1,45 @@
+<%- include('header') %>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">Add movie in Mall</h3>
+      
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add movie in Mall</h4>
+              <form class="forms-sample" method="post" action="/moviemall/addmoviemalldata">
+                <div class="form-group">
+                  <label for="exampleInputUsername1">Movie</label>
+                  <select class="form-control" name="movie_id" id="movie_id" >
+                    <option value=" ">-- select movie--</option>
+                    <% for (var c of movies){%>
+                      <option value="<%=c.id %>">
+                        <%=c.MovieName%>
+                      </option>
+                      <%}%>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="input-2">Select mall</label>
+                  <% for (var c of malls){ %>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="mall_id"
+                        id="<%= c.id %>" value="<%= c.id %>">
+                      <label class="form-check-label" for="<%= c.id %>">
+                        <%= c.MallName %>
+                      </label>
+                    </div>
+                    <% } %>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+   
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- include('footer')%>

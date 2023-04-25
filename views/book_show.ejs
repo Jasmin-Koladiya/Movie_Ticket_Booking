@@ -1,0 +1,107 @@
+<%- include('home_header') %>
+
+
+<h1 id="moviename" style="display: none;"><%=Moviedata.id%></h1>
+<div class="page-single userfav_list" style="padding-top: 270px;">
+	<div class="container">
+		<div class="text-center">
+			<img src="<%=Moviedata.avatar%>" alt="">
+			<h1 style="color: white; padding: 15px;"><%=Moviedata.MovieName%></h1>
+		</div>
+		<form class="form-style-1 celebrity-form" action="/movie/tiketdata" method="post">
+			<input type="hidden" value="<%=Moviedata.id%>" name="movie_id">
+
+			<div class="row">
+				
+				<div class="col-md-12 form-it">
+					<label>Mall</label>
+					<select name="mallid" id="mallid"  onchange="return getdatas()">
+						<option value="">Select Mall</option>
+						<% for(var i=0; i < movie_mall.mall_id.length ; i++) { %>
+						  <option value="<%= movie_mall.mall_id[i].id %>"><%= movie_mall.mall_id[i].MallName %></option>
+						<% } %>
+					  </select>
+				</div>
+				<div class="col-md-12 form-it">
+					<label>Show Time</label>
+					<select name="show_time" id="show_time" onchange="return getprice()">
+						<option value=" ">Plese select your Mall</option>
+					</select>
+				</div>
+				<div class="col-md-12 form-it">
+					<label>price</label>
+					<select name="price" id="price" >
+						<option value=" ">Plese select your Mall</option>
+					</select>
+				</div>
+				<div class="col-md-12 form-it">
+					<div class="row">
+						<div class="col-md-6">
+							<label>Mobile number</label>
+					<input type="text" placeholder="Enter mobile number" name="mobile">
+						</div>
+						<div class="col-md-6">
+							<label>enter seats</label>
+					<input type="number" onchange="return getRupee()" name="seats" id="noRupee">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 ">
+					<input type="hidden" name="bill"  id="paySeat" >
+					<input class="submit" type="submit"  id="paySeatdata"  value="Pay">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		</div>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+	
+  function getdatas(){
+	
+	  var id = document.getElementById('mallid').value;
+	  var moviename = document.getElementById('moviename').textContent;
+	  $.ajax({
+		  url : "/movie/findShowdata",
+		  type : "post",
+		  data : {
+			  Id : id,
+			  moviename:moviename
+		  },
+		  success : function(res){
+			  $('#show_time').html(res);
+			  
+		  }
+	  });
+  }
+  function getprice(){
+	
+	var ids = document.getElementById('show_time').value;
+	var movien = document.getElementById('moviename').textContent;
+	var mall = document.getElementById('mallid').value;
+
+	$.ajax({
+		url : "/movie/pricedata",
+		type : "post",
+		data : {
+			Ids : ids, movien : movien , mall : mall
+		},
+		success : function(res){
+			$('#price').html(res);
+			
+		}
+	});
+}
+
+    function getRupee(){
+        var seat = document.getElementById('noRupee').value;
+        var rupee = document.getElementById('price').value;
+        var total = seat * rupee;
+        document.getElementById('paySeatdata').value = "Pay "+total+"$";
+        document.getElementById('paySeat').value = total;
+    }
+</script>
+<%- include('home_footer') %>

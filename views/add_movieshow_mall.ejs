@@ -1,0 +1,65 @@
+<%- include('header') %>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">add movie show in mall</h3>
+        <nav aria-label="breadcrumb">
+        
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">add movie show in mall</h4>
+              <form class="forms-sample" method="post" action="/movieshow/addmovieshowdata">
+                <div class="form-group">
+                  <label for="exampleInputUsername1">MovieName</label>
+                  <select class="form-control" name="movie_id" id="movie_id"  onchange="return getMall()">
+                    <option value=" ">-- select movie--</option>
+                    <% for (var c of movies){%>
+                      <option value="<%=c.id %>">
+                        <%=c.MovieName%>
+                      </option>
+                      <%}%>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputUsername1">Mall</label>
+                  <select class="form-control" name="mall_id" id="mall_id" >
+                    <option value=" ">-- select movie mall--</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputUsername1">showt ime</label>
+                  <input type="text" class="form-control" id="exampleInputUsername1" name="show_time" placeholder="00:00">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputUsername1"> price</label>
+                  <input type="text" class="form-control" id="exampleInputUsername1" name="price" placeholder="Price">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      function getMall(){
+          var id = document.getElementById('movie_id').value;
+         
+          $.ajax({
+              url : "/movieshow/get_mall",
+              type : "post",
+              data : {
+                  Id : id
+              },
+              success : function(res){
+                  $('#mall_id').html(res);
+              }
+          });
+      }
+  </script>
+<%- include('footer')%>

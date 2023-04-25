@@ -1,0 +1,213 @@
+<%- include('home_header')%>
+<!-- END | Header -->
+<div class="slider movie-items">
+	<div class="container">
+		<div class="row">
+			<div class="social-link">
+				<p>Follow us: </p>
+				<a href="#"><i class="ion-social-facebook"></i></a>
+				<a href="#"><i class="ion-social-twitter"></i></a>
+				<a href="#"><i class="ion-social-googleplus"></i></a>
+				<a href="#"><i class="ion-social-youtube"></i></a>
+			</div>
+	    	<div  class="slick-multiItemSlider">
+				<% var no = 1; for(var i of data) { %>
+
+	    		<div class="movie-item">
+	    			<div class="mv-img">
+	    				<a href="#"><img src="<%= i.avatar %>" alt="" width="285" height="437"></a>
+	    			</div>
+	    			<div class="title-in">
+	    				<div class="cate">
+	    					<span class="blue"><a href="/movie/viewMovieDetail"><%= i.type%></a></span>
+	    				</div>
+	    				<h6><a href="/movie/viewMovieDetail/<%= i.id %>"><%= i.MovieName%></a></h6>
+	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    			</div>
+	    		</div>
+				<%}%>
+	    	</div>
+	    </div>
+	</div>
+</div>
+
+
+<div class="movie-items">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-8">
+				<div class="title-hd">
+					<h2>in theater</h2>
+					<a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+				</div>
+				<div class="tabs">
+					<ul class="tab-links">
+						<li class="active"><a href="#tab1">#Popular</a></li>
+						<li><a href="#tab2"> #Coming soon</a></li>
+						<li><a href="#tab3">  #Top rated  </a></li>
+						<li><a href="#tab4"> #Most reviewed</a></li>                        
+					</ul>
+				    <div class="tab-content">
+				        <div id="tab1" class="tab active">
+				            <div class="row">
+				            	<div class="slick-multiItem">
+								<% var no = 1; for(var i of data) { %>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="<%= i.avatar %>" alt="" width="185" height="284">
+					            			</div> 
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#"><%= i.MovieName%></a></h6>
+					            				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+					            			</div>
+					            		</div>
+				            		</div>
+									<%}%>
+				            	</div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<div class="title-hd">
+					<h2>on tv</h2>
+					<a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+				</div>
+				<div class="tabs">
+					<ul class="tab-links">
+						<li class="active"><a href="#tab1">#Popular</a></li>
+						<li><a href="#tab2"> #Coming soon</a></li>
+						<li><a href="#tab3">  #Top rated  </a></li>
+						<li><a href="#tab4"> #Most reviewed</a></li>                        
+					</ul>
+				    <div class="tab-content">
+				        <div id="tab1" class="tab active">
+				            <div class="row">
+				            	<div class="slick-multiItem">
+								<% var no = 1; for(var i of data) { %>
+				            		<div class="slide-it">
+				            			<div class="movie-item">
+					            			<div class="mv-img">
+					            				<img src="<%= i.avatar %>" alt="" width="185" height="284">
+					            			</div> 
+					            			<div class="hvr-inner">
+					            				<a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+					            			</div>
+					            			<div class="title-in">
+					            				<h6><a href="#"><%= i.MovieName%></a></h6>
+					            				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+					            			</div>
+					            		</div>
+				            		</div>
+									<%}%>
+				            	</div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="sidebar">
+					<div class="ads">
+						<img src="images/uploads/ads1.png" alt="" width="336" height="296">
+					</div>
+					<div class="celebrities">
+						<h4 class="sb-title">Spotlight Celebrities</h4>
+						<div class="celeb-item">
+							<a href="#"><img src="images/uploads/ava1.jpg" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="#">Samuel N. Jack</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<div class="celeb-item">
+							<a href="#"><img src="images/uploads/ava2.jpg" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="#">Benjamin Carroll</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<div class="celeb-item">
+							<a href="#"><img src="images/uploads/ava3.jpg" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="#">Beverly Griffin</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<div class="celeb-item">
+							<a href="#"><img src="images/uploads/ava4.jpg" alt="" width="70" height="70"></a>
+							<div class="celeb-author">
+								<h6><a href="#">Justin Weaver</a></h6>
+								<span>Actor</span>
+							</div>
+						</div>
+						<a href="#" class="btn">See all celebrities<i class="ion-ios-arrow-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="ht-footer">
+	<div class="container">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
+				 <p>5th Avenue st, manhattan<br>
+				New York, NY 10001</p>
+				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+			</div>
+			<div class="flex-child-ft item2">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#">About</a></li> 
+					<li><a href="#">Blockbuster</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Help Center</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item3">
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="#">Terms of Use</a></li> 
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Security</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+				<h4>Account</h4>
+				<ul>
+					<li><a href="#">My Account</a></li> 
+					<li><a href="#">Watchlist</a></li>	
+					<li><a href="#">Collections</a></li>
+					<li><a href="#">User Guide</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item5">
+				<h4>Newsletter</h4>
+				<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+				<form action="#">
+					<input type="text" placeholder="Enter your email...">
+				</form>
+				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="ft-copyright">
+		<div class="ft-left">
+			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+		</div>
+		<div class="backtotop">
+			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+		</div>
+	</div>
+
+<%- include('home_footer')%>
+

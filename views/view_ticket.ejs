@@ -1,0 +1,30 @@
+<%- include('home_header') %>
+
+<div   style="background-color: black; height: 280px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="background-color: black; padding-bottom: 200px;">
+	<div class="container ">
+		<h1 style="color: white; padding-bottom: 40px;">Your Movie Ticket :-</h1>
+		<div class="text-center text-align-left" style="border: 1px solid white; padding: 30px;" >
+	<div style="padding-bottom: 20px;"><img src="<%=i.movie_id.avatar%>" alt=""></div>
+			<div>
+				<h2 style="color: white; padding-bottom: 10px;">Movie Name : <%=i.movie_id.MovieName%></h2>
+				<h2 style="color: white; padding-bottom: 10px;">Mall Name : <%=i.mallid.MallName%></h2>
+				<h2 style="color: white; padding-bottom: 10px;">Show Time : <%=i.show_time%></h2>
+				<h2 style="color: white; padding-bottom: 10px;">Show Price : <%=i.price%></h2>
+				<h2 style="color: white; padding-bottom: 10px;">Total Book setes : <%=i.seats%></h2>
+				<h2 style="color: white; padding-bottom: 10px;"><%=i.seats%> sets Price : <%=i.bill%></h2>
+			</div>
+		</div>
+		</div>
+	</div>
+
+<%- include('home_footer') %>

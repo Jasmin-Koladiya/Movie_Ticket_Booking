@@ -1,0 +1,51 @@
+<%- include('header')%>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">View Admin</h3>
+                <nav aria-label="breadcrumb">
+
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">View Admin Table</h4>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>User name</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <%for(var i of data){%>
+                                            <tr>
+                                                <td>
+                                                    <%= i.name %>
+                                                </td>
+                                                <td>
+                                                    <%= i.email %>
+                                                </td>
+                                               
+                                                <td ><a href="/delete_user/<%= i.id %>"><i class="mdi mdi-delete"></i></a>&nbsp;
+                                                    |&nbsp;&nbsp;| &nbsp;<a href="/updateData/<%= i.id %>"><i class="mdi mdi-table-edit"></i></a></th>
+                                                 
+                                            </tr>
+                                            <%}%>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <%- include('footer')%>

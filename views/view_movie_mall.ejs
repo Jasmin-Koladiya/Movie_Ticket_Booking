@@ -1,0 +1,50 @@
+<%- include('header')%>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title"> View movie in Mall </h3>
+               
+            </div>
+            <form class="search-bar d-flex" >
+                
+              </form>
+            <div class="row">
+                <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">View movie in Mall</h4>
+                           
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Movie Name</th>
+                                            <th>Mall Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <%for(var i of data){%>
+                                            <tr>
+                                                <td scope="col"><%=i.movie_id.MovieName%></td>
+                                                <td> 
+                                                <% for(var o = 0; o < i.mall_id.length ; o++) { %>
+                                                    <%= i.mall_id[o].MallName %><br>
+                                                <% } %>
+                                                </td>
+                                                <td><a href="/moviemall/delete_moviemall/<%= i.id %> "><i class="mdi mdi-delete"></i></a></td>
+                                               </tr>
+                                            <%}%>
+                                    </tbody>
+                                </table>
+
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('footer')%>
