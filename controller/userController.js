@@ -22,7 +22,7 @@ module.exports.usersignupdata  = function (req,res) {
                         console.log(err);
                         return false;
                     }
-                    return res.redirect('/login');
+                    return res.redirect('/user/userlogin');
                 });
             }
             else {
